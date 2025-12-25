@@ -37,6 +37,31 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    flavorDimensions.add("app")
+
+    productFlavors {
+        create("dev") {
+            applicationIdSuffix = ".dev"
+            dimension = "app"
+            // versionCode = flutterVersionCode.toInteger()
+            // versionName = flutterVersionName
+            resValue("string", "app_name", "Shoppi [DEV]")
+        }
+        create("staging") {
+            applicationIdSuffix = ".staging"
+            dimension = "app"
+            // versionCode = flutterVersionCode.toInteger()
+            // versionName = flutterVersionName
+            resValue("string", "app_name", "Shoppi [Staging]")
+        }
+        create("production") {
+            dimension = "app"
+            // versionCode = flutterVersionCode.toInteger()
+            // versionName = flutterVersionName
+            resValue("string", "app_name", "Shoppi")
+        }
+    }
 }
 
 flutter {
